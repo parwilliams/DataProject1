@@ -196,6 +196,11 @@ bool LineSegment::itIntersects(LineSegment L){
 		intersects = false;
 	return intersects;
 }
+// displayEquation() gives the equation of the line in y = mx + b format
+void LineSegment::displayEquation(){
+	Point intercept = yIntercept();
+	cout << "y=" << slope << "*x+" << intercept.getYValue() << endl;
+}
 
 
 class Intervals {
