@@ -37,6 +37,12 @@ void Point::setLocation(double xvalue, double yvalue){
 	x = xvalue;
 	y = yvalue;
 }
+double Point::getXValue(){
+	return x;
+}
+double Point::getYValue(){
+	return y;
+}
 
 class LineSegment {
 protected:
