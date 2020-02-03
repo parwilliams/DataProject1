@@ -246,13 +246,25 @@ Intervals::Intervals(int size) {
 	count = 0; //currently there is none
 	maxSize = size;
 }
-
-
+void Intervals::addLineSegment(LineSegment L){
+	segments[count] = L;
+	count++;
+	cout << segments[count] << endl; //Remember to take out!
+}
 
 
 int main() {
 	//make sure you define all the variables; I have defined ANY
-//first line of input contains the number of segments
+	int noOfSegments;
+	int P1XCord;
+	int P1YCord;
+	int P2XCord;
+	int P2YCord;
+	Point point1;
+	Point point2;
+	LineSegment line;
+	Intervals interval;
+	//first line of input contains the number of segments
 	cin >> noOfSegments;
 	//Go through a loop (noOfSegments times) and read the information about
 	// each segment it will be as follows:
@@ -264,9 +276,19 @@ int main() {
 	//Point objects, with these Point objects you will next create a
 	//LineSegment object and then this LineSegment object is placed in the
 	//object you create for Intervals class using the addLineSegment method
-
+	for(int i = 0; i < noOfSegments; i++){
+		cin >> P1XCord;
+		cin >> P1YCord;
+		cin >> P2XCord;
+		cin >> P2YCord;
+		point1(P1XCord, P1YCord);
+		point2(P2XCord, P2YCord);
+		line(point1, point2);
+		interval.addLineSegment(line);
+	}
 	//Next ...
 	//Call the display method on the Intervals Object you created
+	interval.display();
 	//Next ...
 	//
 	/* Determine ALL PAIRS of intersecting Line Segments and print just
@@ -278,5 +300,24 @@ int main() {
 	 (1, 6)
 	 ...
 	 */
+	for(int i = 0; i < noOfSegments - 1; i++){
+		for(int j = i + 1; j < noOfSegments; j++){
+			if(interval.segments[i].itIntersects(interval.segments[j]) == true){
+				cout << "The line segments compared are segments[" << i << "] and segments[" << j <<
+						"]: Intersection Point :" <<
+						interval.segments[i].intersectionPoint(interval.segments[j]).display() << endl;
+			}
+			else if (interval.segments[i].isParallel(interval.segments[j]) == true){
+				cout << "The line segments compared are segments[" << i << "] and segments[" << j <<
+						"]: Lines are Parallel" << endl;
+			}
+			else
+				cout << "The line segments compared are segments[" << i << "] and segments[" << j <<
+						"]: Not Parallel and not Intersecting" << endl;
+		}
+	}
+
+	return 0;
+
 }
 
