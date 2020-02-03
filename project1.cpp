@@ -157,6 +157,22 @@ bool LineSegment::isParallel(LineSegment L){
 		parallel = false;
 	return parallel;
 }
+// itersectionPoint() finds the intersection point of this line segment and the provided one
+// returns (null, null) if the point does not exist
+Point LineSegment::intersectionPoint(LineSegment L){
+	double xInterCo; // x coordinate of the intersection point
+	double yInterCo; // y coordinate of the intersection point
+	if(isParallel(L) == true){
+		xInterCo = NULL;
+		yInterCo = NULL;
+	}
+	else{
+		xInterCo = (L.yIntercept() - yIntercept()) / (slope() - L.slope());
+		yInterCo = ((yIntercept() * L.slope()) - (L.yIntercept() * slope())) / (L.slope() - slope());
+	}
+	Point intersection(xInterCo, yInterCo);
+	return intersection;
+}
 
 class Intervals {
 protected:
