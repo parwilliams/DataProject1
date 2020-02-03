@@ -157,7 +157,7 @@ bool LineSegment::isParallel(LineSegment L){
 		parallel = false;
 	return parallel;
 }
-// itersectionPoint() finds the intersection point of this line segment and the provided one
+// intersectionPoint() finds the intersection point of this line segment and the provided one
 // returns (null, null) if the point does not exist
 Point LineSegment::intersectionPoint(LineSegment L){
 	double xInterCo; // x coordinate of the intersection point
@@ -173,6 +173,30 @@ Point LineSegment::intersectionPoint(LineSegment L){
 	Point intersection(xInterCo, yInterCo);
 	return intersection;
 }
+// itIntersections determines if the provided line segment intersects with this line segment
+bool LineSegment::itIntersects(LineSegment L){
+	bool intersects;
+	//These find the vectors needed for the following
+	Point P1P2((P2.getXValue() - P1.getXValue()), (P2.getYValue() - P1.getYValue()));
+	Point P1Q1((L.P1.getXValue() - P1.getXValue()), (L.P1.getYValue() - P1.getYValue()));
+	Point P1Q2((L.P2.getXValue() - P1.getXValue()), (L.P2.getYValue() - P1.getYValue()));
+	Point Q1Q2((L.P2.getXValue() - L.P1.getXValue()), (L.P2.getYValue() - L.P1.getYValue()));
+	Point Q1P1((P1.getXValue() - L.P1.getXValue()), (P1.getYValue() - L.P1.getYValue()));
+	//This finds if lines intersect using d1 * d2 <= 0, d3 * d4 <=0 from reference sheet
+	double d1 = (P1P2.getXValue() * P1Q1.getYValue()) - (P1Q1.getXValue() * P1P2.getYValue());
+	double d2 = (P1P2.getXValue() * P1Q2.getYValue()) - (P1Q2.getXValue() * P1P2.getYValue());
+	double d3 = (Q1Q2.getXValue() * Q1P1.getYValue()) - (Q1P1.getXValue() * Q1Q2.getYValue());
+	double d4 = (Q1Q2.getXValue() * P1P2.getYValue()) - (P1P2.getXValue() * Q1Q2.getYValue());
+	if(slope() == L.slope()){
+		intersects = false;
+	}
+	else if((d1 * d2) <= 0 && (d3 * d4) <= 0)
+		intersects = true;
+	else
+		intersects = false;
+	return intersects;
+}
+
 
 class Intervals {
 protected:
