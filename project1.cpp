@@ -147,6 +147,16 @@ Point LineSegment::yIntercept(){
 	Point yIntercept(0, yInterceptCoordinate);
 	return xIntercept;
 }
+// isParallel() finds if the this line segment is parallel to the provided line segment
+bool LineSegment::isParallel(LineSegment L){
+	bool parallel;
+	if(L.slope() == slope()){
+		parallel = true;
+	}
+	else
+		parallel = false;
+	return parallel;
+}
 
 class Intervals {
 protected:
