@@ -111,12 +111,19 @@ double LineSegment::squareroot(double givenNumber){
 	}
 	return l;
 }
-//length() returns the length of the Line segment using the distance formula
+// length() returns the length of the Line segment using the distance formula
 double LineSegment::length(){
 	double xSquared = (P1.getXValue() - P2.getXValue()) * (P1.getXValue() - P2.getXValue());
 	double ySquared = (P1.getYValue() - P2.getYValue()) * (P1.getYValue() - P2.getYValue());
 	double length = squareroot(xSquared + ySquared);
 	return length;
+}
+// midpoint() returns the midpoint of the line segment
+Point LineSegment::midpoint(){
+	double xCoordinate = (P1.getXValue() + P2.getXValue()) / 2;
+	double yCoordinate = (P1.getYValue() + P2.getYValue()) / 2;
+	Point P(xCoordinate, yCoordinate);
+	return P;
 }
 
 class Intervals {
