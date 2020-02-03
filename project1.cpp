@@ -111,6 +111,13 @@ double LineSegment::squareroot(double givenNumber){
 	}
 	return l;
 }
+//length() returns the length of the Line segment using the distance formula
+double LineSegment::length(){
+	double xSquared = (P1.getXValue() - P2.getXValue()) * (P1.getXValue() - P2.getXValue());
+	double ySquared = (P1.getYValue() - P2.getYValue()) * (P1.getYValue() - P2.getYValue());
+	double length = squareroot(xSquared + ySquared);
+	return length;
+}
 
 class Intervals {
 protected:
