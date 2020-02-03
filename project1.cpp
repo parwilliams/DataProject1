@@ -125,6 +125,11 @@ Point LineSegment::midpoint(){
 	Point P(xCoordinate, yCoordinate);
 	return P;
 }
+// slope() returns the slope of the line segment
+double LineSegment::slope(){
+	double slope = (P2.getYValue() - P1.getYValue()) / (P2.getXValue() - P1.getXValue());
+	return slope;
+}
 
 class Intervals {
 protected:
