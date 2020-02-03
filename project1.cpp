@@ -33,6 +33,10 @@ Point::Point(double xvalue, double yvalue){
 	x = xvalue;
 	y = yvalue;
 }
+void Point::setLocation(double xvalue, double yvalue){
+	x = xvalue;
+	y = yvalue;
+}
 
 class LineSegment {
 protected:
