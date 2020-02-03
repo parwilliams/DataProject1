@@ -127,7 +127,12 @@ Point LineSegment::midpoint(){
 }
 // slope() returns the slope of the line segment
 double LineSegment::slope(){
-	double slope = (P2.getYValue() - P1.getYValue()) / (P2.getXValue() - P1.getXValue());
+	double slope;
+	if(P2.getXValue() == P1.getXValue()){
+		slope = NULL; //This is for a vertical line with undefined slope
+	}
+	else
+		slope = (P2.getYValue() - P1.getYValue()) / (P2.getXValue() - P1.getXValue());
 	return slope;
 }
 
