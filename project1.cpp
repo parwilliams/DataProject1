@@ -27,8 +27,8 @@ public:
 };
 //The following are the constructors for the Point class
 Point::Point(){
-	x = 0.00;
-	y = 0.00;
+	x = 0.0;
+	y = 0.0;
 }
 Point::Point(double xvalue, double yvalue){
 	x = xvalue;
@@ -72,6 +72,8 @@ public:
 	// y = m * x + c where m is the slope
 	// and c is the y-intercept
 	//other methods that are necessary
+	double squareroot(double givenNumber);
+
 };
 // The following are the Line Segment class constructors
 LineSegment::LineSegment(){
@@ -81,6 +83,33 @@ LineSegment::LineSegment(){
 LineSegment::LineSegment(Point one, Point two){
 	P1 = one;
 	P2 = two;
+}
+//Squareroot method finds the squareroot of a given
+//SquareRoot method was given through Canvas by TA
+double LineSegment::squareroot(double givenNumber){
+	double eps = 1e-6;
+	double k = givenNumber;
+	double l = 0.0, r, mid;
+
+	if (k >= 1) {
+		r = k;
+	}
+	if (k < 1)  {
+		r = 1;
+	}
+
+	while (l - k / l > eps || l - k / l < -eps)
+	{
+		mid = l + (r - l) /2 ;
+		if (mid<k/mid)
+		{
+			l = mid;
+		}
+		else {
+			r = mid;
+		}
+	}
+	return l;
 }
 
 class Intervals {
