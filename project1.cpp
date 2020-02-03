@@ -2,7 +2,7 @@
  * project1.cpp
  *
  *  Created on: Feb 2, 2020
- *      Author: williparl
+ *      Author: Parker Williams
  */
 
 #include <iostream>
@@ -25,6 +25,7 @@ public:
 	void display(); // Print (0.0, 0.0)
 	//other methods that are necessary
 };
+//The following are the constructors for the Point class
 Point::Point(){
 	x = 0.00;
 	y = 0.00;
@@ -33,16 +34,20 @@ Point::Point(double xvalue, double yvalue){
 	x = xvalue;
 	y = yvalue;
 }
+//This method changes the location of the Point
 void Point::setLocation(double xvalue, double yvalue){
 	x = xvalue;
 	y = yvalue;
 }
+//This method returns the x coordinate of the point
 double Point::getXValue(){
 	return x;
 }
+//This method returns the y coordinate of the point
 double Point::getYValue(){
 	return y;
 }
+//This method prints the Point
 void Point::display(){
 	cout << "(" << x << ", " << y << ")" << endl;
 }
@@ -68,6 +73,7 @@ public:
 	// and c is the y-intercept
 	//other methods that are necessary
 };
+
 
 class Intervals {
 protected:
