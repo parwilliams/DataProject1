@@ -43,6 +43,9 @@ double Point::getXValue(){
 double Point::getYValue(){
 	return y;
 }
+void Point::display(){
+	cout << "(" << x << ", " << y << ")" << endl;
+}
 
 class LineSegment {
 protected:
