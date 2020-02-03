@@ -77,8 +77,8 @@ public:
 };
 // The following are the Line Segment class constructors
 LineSegment::LineSegment(){
-	P1 = NULL;
-	P2 = NULL;
+	P1(0,0);
+	P2(0,0);
 }
 LineSegment::LineSegment(Point one, Point two){
 	P1 = one;
