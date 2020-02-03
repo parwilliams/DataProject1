@@ -18,7 +18,7 @@ protected:
 public:
 	Point(); //default constructor; x = 0.0 and y = 0.0
 	Point(double xvalue, double yvalue); //no-default constructor
-	setLocation (double xvalue, double yvalue);// set x = xvalue and
+	void setLocation(double xvalue, double yvalue);// set x = xvalue and
 	// y = yvalue
 	double getXValue(); //return x
 	double getYValue(); //return y
