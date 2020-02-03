@@ -135,10 +135,16 @@ double LineSegment::slope(){
 		slope = (P2.getYValue() - P1.getYValue()) / (P2.getXValue() - P1.getXValue());
 	return slope;
 }
-// xIntercept() finds and returns the line segment's xIntercept
+// xIntercept() finds and returns the line segment's x Intercept
 Point LineSegment::xIntercept(){
 	double xInterceptCoordinate = P1.getXValue() - (P1.getYValue() * slope());
 	Point xIntercept(xInterceptCoordinate, 0);
+	return xIntercept;
+}
+// yIntercept() finds and returns the line segment's y Intercept
+Point LineSegment::yIntercept(){
+	double yInterceptCoordinate = P1.getYValue() - (P1.getXValue() * slope());
+	Point yIntercept(0, yInterceptCoordinate);
 	return xIntercept;
 }
 
