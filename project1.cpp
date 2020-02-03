@@ -73,7 +73,15 @@ public:
 	// and c is the y-intercept
 	//other methods that are necessary
 };
-
+// The following are the Line Segment class constructors
+LineSegment::LineSegment(){
+	P1 = NULL;
+	P2 = NULL;
+}
+LineSegment::LineSegment(Point one, Point two){
+	P1 = one;
+	P2 = two;
+}
 
 class Intervals {
 protected:
